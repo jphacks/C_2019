@@ -15,6 +15,12 @@ class App extends React.Component {
     now_videos: [],
   }
 
+  addNowVideos = (video) => {
+    const now_videos = this.state.now_videos.slice();
+    now_videos.push(video);
+    this.setState({now_videos: now_videos});
+  }
+
   onSerchYoutube = (keyword) => {
     const url = `https://www.googleapis.com/youtube/v3/search?type=video&part=snippet&q=${keyword}&maxResults=6&key=${YOUTUBE_API_KEY}`;
 
@@ -28,7 +34,7 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state.videos);
+    console.log(this.state.now_videos);
     return (
       <>
       <Header>
@@ -38,7 +44,7 @@ class App extends React.Component {
           </Grid>
         </Grid>
         <h1>動画一覧</h1>
-        <MovieList videos={this.state.videos} />
+        <MovieList videos={this.state.videos} addNowVideos={this.addNowVideos} />
       </Header>
     </>
     )

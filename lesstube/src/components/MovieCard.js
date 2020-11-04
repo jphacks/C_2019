@@ -39,11 +39,8 @@ export default function MediaCard(props) {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
-          Share
-        </Button>
-        <Button size="small" color="primary">
-          Learn More
+        <Button size="small" color="primary" onClick={() => props.addNowVideos(props.video)}>
+          今見るリストに追加
         </Button>
       </CardActions>
     </Card>

@@ -23,7 +23,7 @@ export default function CenteredGrid(props) {
       <Grid container spacing={3}>
         {props.videos.map((video, i) => (
           <Grid item xs={3} key={i}>
-            <MovieCard video={video} />
+            <MovieCard video={video} addNowVideos={props.addNowVideos} />
           </Grid>
         ))}
       </Grid>
