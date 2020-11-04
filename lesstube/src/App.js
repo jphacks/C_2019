@@ -15,21 +15,6 @@ class App extends React.Component {
     now_videos: [],
   }
 
-  // componentDidMount() {
-  //   const url = `https://www.googleapis.com/youtube/v3/search?type=video&part=snippet&q=${this.state.keyword}&maxResults=3&key=${YOUTUBE_API_KEY}`;
-
-  //   axios
-  //   .get(url)
-  //   .then(response => {
-  //     this.setState({
-  //       videos: response.data.items,
-  //     });
-  //   })
-  //   .catch(() => {
-  //        console.log('通信に失敗しました');
-  //   });
-  // }
-  
   onSerchYoutube = (keyword) => {
     const url = `https://www.googleapis.com/youtube/v3/search?type=video&part=snippet&q=${keyword}&maxResults=3&key=${YOUTUBE_API_KEY}`;
 
