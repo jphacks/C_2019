@@ -9,13 +9,6 @@ const YouTubePlayer = (props) => {
           autoplay: 0,
         },
       };
-
-    // const video = props.videos.map((video) => {
-    //     return (
-    //         <YouTube videoId={video.id.videoId} opts={opts} />
-    //     )
-    // });
-
     return (
         <>
           <YouTube videoId={props.video.id.videoId} opts={opts} />

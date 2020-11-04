@@ -17,7 +17,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
-import { Link } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 const drawerWidth = 240;
 
@@ -134,7 +134,7 @@ export default function PersistentDrawerLeft(props) {
         <Divider />
         <List>
           <ListItem>
-            <Link to="#">リストに入れた動画を見る</Link>
+            <Link to="/watch">リストに入れた動画を見る</Link>
           </ListItem>
         </List>
         <Divider />
