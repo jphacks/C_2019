@@ -10,22 +10,17 @@ const YouTubePlayer = (props) => {
         },
       };
 
-      const _onReady = (e) => {
-        e.target.pauseVideo();
-    }
-
-    const video = props.videos.map((video) => {
-        return (
-            <YouTube videoId={video.id.videoId} opts={opts} onReady={_onReady} />            
-        )
-    });
+    // const video = props.videos.map((video) => {
+    //     return (
+    //         <YouTube videoId={video.id.videoId} opts={opts} />
+    //     )
+    // });
 
     return (
         <>
-          {video}
+          <YouTube videoId={props.video.id.videoId} opts={opts} />
         </>
     )
-
 }
 
 export default YouTubePlayer;

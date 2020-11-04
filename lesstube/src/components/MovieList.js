@@ -15,36 +15,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function CenteredGrid() {
+export default function CenteredGrid(props) {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
       <Grid container spacing={3}>
-        <Grid item xs={3}>
-          <MovieCard />
-        </Grid>
-        <Grid item xs={3}>
-          <MovieCard />
-        </Grid>
-        <Grid item xs={3}>
-          <MovieCard />
-        </Grid>
-        <Grid item xs={3}>
-          <MovieCard />
-        </Grid>
-        <Grid item xs={3}>
-          <MovieCard />
-        </Grid>
-        <Grid item xs={3}>
-          <MovieCard />
-        </Grid>
-        <Grid item xs={3}>
-          <MovieCard />
-        </Grid>
-        <Grid item xs={3}>
-          <MovieCard />
-        </Grid>
+        {props.videos.map((video, i) => (
+          <Grid item xs={3} key={i}>
+            <MovieCard video={video} />
+          </Grid>
+        ))}
       </Grid>
     </div>
   );

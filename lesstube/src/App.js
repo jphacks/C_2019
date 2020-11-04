@@ -16,7 +16,7 @@ class App extends React.Component {
   }
 
   onSerchYoutube = (keyword) => {
-    const url = `https://www.googleapis.com/youtube/v3/search?type=video&part=snippet&q=${keyword}&maxResults=3&key=${YOUTUBE_API_KEY}`;
+    const url = `https://www.googleapis.com/youtube/v3/search?type=video&part=snippet&q=${keyword}&maxResults=6&key=${YOUTUBE_API_KEY}`;
 
     axios.get(url).then(response => {
       this.setState({
@@ -38,7 +38,7 @@ class App extends React.Component {
           </Grid>
         </Grid>
         <h1>動画一覧</h1>
-        <MovieList />
+        <MovieList videos={this.state.videos} />
       </Header>
     </>
     )
