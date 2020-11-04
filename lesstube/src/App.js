@@ -37,7 +37,7 @@ class App extends React.Component {
     console.log(this.state.now_videos);
     return (
       <>
-      <Header>
+      <Header now_videos={this.state.now_videos}>
         <Grid container alignItems="center" justify="center" spacing={3}>
           <Grid item xs={3}>
             <Form onSerchYouTube={this.onSerchYoutube} />
