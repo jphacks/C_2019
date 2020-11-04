@@ -1,4 +1,3 @@
-import React from 'react';
 import YouTube from 'react-youtube';
 
 const YouTubePlayer = (props) => {
@@ -10,9 +9,7 @@ const YouTubePlayer = (props) => {
         },
       };
     return (
-        <>
-          <YouTube videoId={props.video.id.videoId} opts={opts} />
-        </>
+      <YouTube videoId={props.video.id.videoId} opts={opts} />
     )
 }
 

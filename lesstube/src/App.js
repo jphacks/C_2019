@@ -48,7 +48,7 @@ class App extends React.Component {
           <Header now_videos={this.state.now_videos}>
             <Switch>
               <Route path="/watch">
-                <WatchList />
+                <WatchList now_videos={this.state.now_videos} />
               </Route>
               <Route path="/">
                 <Grid container alignItems="center" justify="center" spacing={3}>
