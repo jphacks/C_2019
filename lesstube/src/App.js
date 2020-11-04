@@ -13,35 +13,34 @@ class App extends React.Component {
   state = {
     videos: [],
     now_videos: [],
-    keyword: 'ヒカキン',
   }
 
-  componentDidMount() {
-    const url = `https://www.googleapis.com/youtube/v3/search?type=video&part=snippet&q=${this.state.keyword}&maxResults=3&key=${YOUTUBE_API_KEY}`;
+  // componentDidMount() {
+  //   const url = `https://www.googleapis.com/youtube/v3/search?type=video&part=snippet&q=${this.state.keyword}&maxResults=3&key=${YOUTUBE_API_KEY}`;
 
-    axios
-    .get(url)
-    .then(response => {
-      this.setState({
-        videos: response.data.items,
-      });
-    })
-    .catch(() => {
-         console.log('通信に失敗しました');
-    });
-  }
-  
-  // onSerchYoutube = (keyword) => {
-  //   const url = `https://www.googleapis.com/youtube/v3/search?type=video&part=snippet&q=${keyword}&maxResults=3&key=${YOUTUBE_API_KEY}`;
-
-  //   axios.get(url).then(response => {
+  //   axios
+  //   .get(url)
+  //   .then(response => {
   //     this.setState({
   //       videos: response.data.items,
   //     });
-  //   }).catch(() => {
-  //     console.log('通信に失敗しました');
+  //   })
+  //   .catch(() => {
+  //        console.log('通信に失敗しました');
   //   });
   // }
+  
+  onSerchYoutube = (keyword) => {
+    const url = `https://www.googleapis.com/youtube/v3/search?type=video&part=snippet&q=${keyword}&maxResults=3&key=${YOUTUBE_API_KEY}`;
+
+    axios.get(url).then(response => {
+      this.setState({
+        videos: response.data.items,
+      });
+    }).catch(() => {
+      console.log('通信に失敗しました');
+    });
+  }
 
   render() {
     console.log(this.state.videos);
@@ -50,7 +49,7 @@ class App extends React.Component {
       <Header>
         <Grid container alignItems="center" justify="center" spacing={3}>
           <Grid item xs={3}>
-            <Form />
+            <Form onSerchYouTube={this.onSerchYoutube} />
           </Grid>
         </Grid>
         <h1>動画一覧</h1>

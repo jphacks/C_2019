@@ -1,23 +1,40 @@
 import React from 'react';
+import _ from 'lodash';
 import TextField from '@material-ui/core/TextField';
-import { makeStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/styles';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    '& .MuiTextField-root': {
-      margin: theme.spacing(1),
-      width: '25ch',
-    },
-  },
-}));
+const styles = theme => ({
+    root: {
+        '& .MuiTextField-root': {
+          width: '50ch',
+        },
+      },
+});
 
-export default function FormPropsTextFields() {
-  const classes = useStyles();
+class SearchForm extends React.Component {
+  state = {
+      keyword: '',
+  };
 
-  return (
-    <form className={classes.root} noValidate autoComplete="off">
-      {/* <TextField id="standard-search" label="Search field" type="search" /> */}
-      <TextField id="outlined-search" label="Search field" type="search" variant="outlined" />
-    </form>
-  );
+  handeleChangeInput = (e) => {
+      this.setState({keyword: e.target.value});
+      this._debounce(e.target.value)
+  }
+
+  _debounce = _.debounce(value => {
+      this.props.onSerchYouTube(value);
+  }, 400);
+
+  render() {
+      const { classes } = this.props;
+      return (
+          <>
+            <form className={classes.root} noValidate autoComplete="off">
+              <TextField id="outlined-search" label="Search field" type="search" variant="outlined" onChange={this.handeleChangeInput} value={this.state.keyword} />
+            </form>
+          </>
+      )
+  }
 }
+  
+  export default withStyles(styles)(SearchForm);
