@@ -17,29 +17,25 @@ const useStyles = makeStyles({
   },
 });
 
-export default function MediaCard(props) {
+export default function MediaCardImage(props) {
   const classes = useStyles();
-  const url = 'https://www.youtube.com/embed/' + props.video.id.videoId;
+  const url = props.video.snippet.thumbnails.default.url;
   return (
     <Card className={classes.root}>
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          component="iframe"
-          src={url}
+          image={url}
           title="Contemplative Reptile"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
             {props.video.snippet.title}
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            {props.video.snippet.description}
-          </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary" onClick={() => props.addNowVideos(props.video)}>
+        <Button size="small" color="primary">
           今見るリストに追加
         </Button>
       </CardActions>
