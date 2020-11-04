@@ -1,4 +1,5 @@
 import React from 'react'
+import axios from 'axios';
 import Grid from '@material-ui/core/Grid';
 
 import Header from './components/Header'
@@ -6,14 +7,30 @@ import MovieList from './components/MovieList'
 import Form from './components/Form'
 import './App.css';
 
-// const YOUTUBE_API_KEY = process.env.REACT_APP_YOUTUBE_API_KEY;
+const YOUTUBE_API_KEY = process.env.REACT_APP_YOUTUBE_API_KEY;
 
 class App extends React.Component {
   state = {
     videos: [],
     now_videos: [],
+    keyword: 'ヒカキン',
   }
 
+  componentDidMount() {
+    const url = `https://www.googleapis.com/youtube/v3/search?type=video&part=snippet&q=${this.state.keyword}&maxResults=3&key=${YOUTUBE_API_KEY}`;
+
+    axios
+    .get(url)
+    .then(response => {
+      this.setState({
+        videos: response.data.items,
+      });
+    })
+    .catch(() => {
+         console.log('通信に失敗しました');
+    });
+  }
+  
   // onSerchYoutube = (keyword) => {
   //   const url = `https://www.googleapis.com/youtube/v3/search?type=video&part=snippet&q=${keyword}&maxResults=3&key=${YOUTUBE_API_KEY}`;
 
