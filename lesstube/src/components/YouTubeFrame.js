@@ -5,11 +5,16 @@ const YouTubePlayer = (props) => {
         height: '475',
         width: '800',
         playerVars: {
-          autoplay: 0,
+          autoplay: 1,
         },
       };
+
+    const _onEnd = () => {
+      props.removeFromWatchList();
+    }
+
     return (
-      <YouTube videoId={props.video.id.videoId} opts={opts} />
+      <YouTube videoId={props.video.id.videoId} opts={opts} onEnd={_onEnd}/>
     )
 }
 
