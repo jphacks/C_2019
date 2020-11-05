@@ -141,7 +141,6 @@ export default function PersistentDrawerLeft(props) {
         <List>
           {props.now_videos.map((video, index) => (
             <ListItem button key={video.snippet.title}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
               <ListItemText primary={video.snippet.title} />
             </ListItem>
           ))}
