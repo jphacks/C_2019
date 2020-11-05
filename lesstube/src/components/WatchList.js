@@ -9,9 +9,9 @@ class WatchList extends React.Component {
       now_videos: this.props.now_videos,
     }
 
-    removeFromWatchList(video) {
+    removeFromWatchList = () => {
       const now_videos = this.state.now_videos.slice();
-      now_videos.slice(video);
+      now_videos.shift();
       this.setState({now_videos: now_videos});
     }
 
@@ -21,7 +21,7 @@ class WatchList extends React.Component {
           <Grid container>
               <Grid item xs={1}></Grid>
             <Grid item xs={8}>
-              {this.state.now_videos.length ? <YouTubeFrame video={this.state.now_videos[0]} /> : <h1>まだ動画がありません</h1>}
+              {this.state.now_videos.length ? <YouTubeFrame video={this.state.now_videos[0]} removeFromWatchList={this.removeFromWatchList} /> : <h1>まだ動画がありません</h1>}
             </Grid>
             <Grid item xs={3}>
               <Grid container>
