@@ -50,6 +50,9 @@ class App extends React.Component {
               <Route path="/watch">
                 <WatchList now_videos={this.state.now_videos} />
               </Route>
+              <Route path="/end">
+                <h1>Thank you for watching.</h1>
+              </Route>
               <Route path="/">
                 <Grid container alignItems="center" justify="center" spacing={3}>
                   <Grid item xs={3}>

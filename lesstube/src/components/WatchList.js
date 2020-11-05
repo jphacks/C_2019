@@ -1,5 +1,6 @@
 import React from 'react'
 import Grid from '@material-ui/core/Grid';
+import {Redirect} from 'react-router-dom';
 
 import YouTubeFrame from './YouTubeFrame';
 import MovieCard from './MovieCardImage';
@@ -21,7 +22,7 @@ class WatchList extends React.Component {
           <Grid container>
               <Grid item xs={1}></Grid>
             <Grid item xs={8}>
-              {this.state.now_videos.length ? <YouTubeFrame video={this.state.now_videos[0]} removeFromWatchList={this.removeFromWatchList} /> : <h1>まだ動画がありません</h1>}
+              {this.state.now_videos.length ? <YouTubeFrame video={this.state.now_videos[0]} removeFromWatchList={this.removeFromWatchList} /> : <Redirect to='/end' />}
             </Grid>
             <Grid item xs={3}>
               <Grid container>
