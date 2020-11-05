@@ -20,11 +20,12 @@ class WatchList extends React.Component {
         console.log(this.state.now_videos[0])
         return (
           <Grid container>
-              <Grid item xs={1}></Grid>
+            <Grid item xs={0} lg={1}></Grid>
             <Grid item xs={8}>
               {this.state.now_videos.length ? <YouTubeFrame video={this.state.now_videos[0]} removeFromWatchList={this.removeFromWatchList} /> : <Redirect to='/end' />}
             </Grid>
-            <Grid item xs={3}>
+            <Grid item xs={1} lg={0}></Grid>
+            <Grid item xs={2}>
               <Grid container>
                   {this.state.now_videos.slice(1).map((video, i) => (
                     <Grid item xs={12} key={i}>
